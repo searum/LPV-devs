@@ -387,6 +387,10 @@ void WorldSession::DoLootRelease(uint64 lguid)
             if (!pCreature->isAlive())
                 pCreature->AllLootRemovedFromCorpse();
 
+      // save player every time when loot
+      if (player)
+        player->SaveToDB();
+
             pCreature->RemoveFlag(UNIT_DYNAMIC_FLAGS, UNIT_DYNFLAG_LOOTABLE);
             loot->clear();
         }
