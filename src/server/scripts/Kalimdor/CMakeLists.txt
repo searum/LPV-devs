@@ -116,8 +116,9 @@ set(scripts_STAT_SRCS
   Kalimdor/HallsOfOrigination/boss_setesh.cpp
   Kalimdor/HallsOfOrigination/boss_ammunae.cpp
   Kalimdor/HallsOfOrigination/boss_rajh.cpp
-  Kalimdor/TheVortexPinnacle/the_vortex_pinnacle.h
-  Kalimdor/TheVortexPinnacle/instance_the_vortex_pinnacle.cpp
+  Kalimdor/TheVortexPinnacle/instance_vortex_pinnacle.cpp
+  Kalimdor/TheVortexPinnacle/vortex_pinnacle.cpp
+  Kalimdor/TheVortexPinnacle/vortex_pinnacle.h 
 )
 
 message("  -> Prepared: Kalimdor")

@@ -54,6 +54,7 @@ enum CreatureIds
     NPC_TEMPLE_ADEPT            = 45935,
     NPC_YOUNG_STORM_DRAGON      = 45919,
     NPC_WILD_VORTEX             = 45912,
+    NPC_SLIPSTREAM              = 45455,
     // Various NPCs
 
     NPC_GOLDEN_ORB              = 51157,  /*Heroic Mode*/
