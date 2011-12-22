@@ -436,6 +436,37 @@ class spell_pal_selfless_healer : public SpellScriptLoader
         }
 };
 
+class spell_pal_judgements_of_the_wise : public SpellScriptLoader
+{
+    public:
+        spell_pal_judgements_of_the_wise() : SpellScriptLoader("spell_pal_judgements_of_the_wise") { }
+
+        class spell_pal_judgements_of_the_wise_AuraScript : public AuraScript
+        {
+            PrepareAuraScript(spell_pal_judgements_of_the_wise_AuraScript);
+
+            void CalculateMana(AuraEffect const* /*aurEff*/, int32& amount, bool& canBeRecalculated)
+            {
+                if (Unit* caster = GetCaster())
+                {
+                    canBeRecalculated = true;
+                    int32 basemana = caster->ToPlayer()->GetCreateMana();
+                    amount = (3 * basemana) / 100; // 3% of base mana
+                }
+            }
+
+            void Register()
+            {
+                DoEffectCalcAmount += AuraEffectCalcAmountFn(spell_pal_judgements_of_the_wise_AuraScript::CalculateMana, EFFECT_0, SPELL_AURA_PERIODIC_ENERGIZE);
+            }
+        };
+
+        AuraScript* GetAuraScript() const
+        {
+            return new spell_pal_judgements_of_the_wise_AuraScript();
+        }
+};
+
 void AddSC_paladin_spell_scripts()
 {
     new spell_pal_ardent_defender();
@@ -445,4 +476,5 @@ void AddSC_paladin_spell_scripts()
     new spell_pal_cleanse();
     new spell_pal_word_of_glory();
     new spell_pal_selfless_healer();
+	new spell_pal_judgements_of_the_wise();
 }
