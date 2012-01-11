@@ -5404,6 +5404,10 @@ void Player::RepopAtGraveyard()
             GetSession()->SendPacket(&data);
         }
     }
+	// custom Teleport a Blackwing Descent
+	else if (GetZoneId() == 5094) TeleportTo(0, -7509.752f, -1211.854f, 541.123f, 5.016f);
+	// fin de custom
+	
     else if (GetPositionZ() < -500.0f)
         TeleportTo(m_homebindMapId, m_homebindX, m_homebindY, m_homebindZ, GetOrientation());
 }
